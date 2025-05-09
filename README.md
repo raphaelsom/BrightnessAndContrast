@@ -1,5 +1,7 @@
 # Convert PPM to grayscale image, adjust brightness and contrast
 
+This project was created in the course of the TUM-lecture "[IN0035] Aspekte der systemnahen Programmierung bei der Spieleentwicklung". A given PPM image is converted to grayscale, after which the contrast and brightness are adjusted according to the given input parameters. The goal of this project was to compare C to ASM x86-64 implementations (both SISD & SIMD) and see if the compiler could be beaten.
+
 ## Usage
 
 ```bash
@@ -44,13 +46,13 @@
 
 - `-B[<runs>]`  
   Perform benchmark test. If `<runs>` is given: measure average over `<runs>` runs.  
-  Default: `%u` runs
+  Default: 5000 runs
 
 - `--csv`  
   Benchmark all implementations (impl. given via `-V` is ignored) and write result to CSV file  
-  Each implementation is benchmarked `%u` times with an increasing image size, each time over a given number of runs  
+  Each implementation is benchmarked 7 times with an increasing image size, each time over a given number of runs  
   (can be specified via `-B`, else the default setting is used).  
-  The result of `%s` is written to the output file.  
+  The result of C SISD with sqrt_ieee is written to the output file.  
   Number of pixels starts with `(input image size / 2^6)` and is doubled on each benchmark.
 
 - `--test`  
@@ -61,7 +63,7 @@
 
 - `--sqrt`  
   Test and benchmark all square root implementations.  
-  Benchmark result is written to `%s`.  
+  Benchmark result is written to benchmark.csv.  
   No brightness/contrast implementation is executed.
 
 - `-h`, `--help`  
@@ -69,13 +71,13 @@
 
 ## Benchmarking
 
-Benchmarks were performed on the following system:
+Code was compiled with GCC 14.2.1 using -O3 and -fno-unroll-loops. 
 
+Benchmarks were performed on:
 - Fedora Linux 40 (x86\_64)
 - Linux-Kernel 6.12.8
 - Intel i7-8565U (8) @ 4.6GHz
 - 16GB RAM
-- GCC 14.2.1
 
 ## Results
 
