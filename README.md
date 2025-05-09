@@ -1,4 +1,4 @@
-# Convert PPM to grayscale image, adjust brightness and contrast
+# Convert PPM image to grayscale, adjust brightness and contrast
 
 This project was created in the course of the TUM-lecture "[IN0035] Aspekte der systemnahen Programmierung bei der Spieleentwicklung". A given PPM image is converted to grayscale, after which the contrast and brightness are adjusted according to the given input parameters. The goal of this project was to compare C to ASM x86-64 implementations (both SISD & SIMD) and see if the compiler could be beaten.
 
